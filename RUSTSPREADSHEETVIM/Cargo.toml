@@ -1,0 +1,10 @@
+[package]
+name = "spreadsheet"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+libc = "0.2"
+regex = "1.11.1"
+once_cell = "1.8"
+
