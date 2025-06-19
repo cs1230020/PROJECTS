@@ -1,0 +1,12 @@
+bool b := input_file "tests/bool.txt";
+string s := input_file "tests/string.txt";
+int i := input_file "tests/int.txt";
+float f := input_file "tests/float.txt";
+vector v := input_file "tests/vector.txt";
+matrix m := input_file "tests/matrix.txt";
+print(b);
+print(s);
+print_int(i);
+print_float(f);
+print_vector(v);
+print_matrix(m);

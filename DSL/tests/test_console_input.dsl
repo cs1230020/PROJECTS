@@ -1,0 +1,18 @@
+print("enter bool:");
+bool a := input();
+print(a);
+print("enter string:");
+string s:= input();
+print(s);
+print("enter int:");
+int i := input();
+print_int(i);
+print("enter float:");
+float f := input();
+print_float(f);
+print("enter vector:");
+vector v:= input();
+print_vector(v);
+print("enter matrix:");
+matrix m:=input();
+print_matrix(m);
