@@ -1,4 +1,5 @@
 # PROJECTS
 
-*RUSTSPREADSHEETVIM*
-*Vim Spreadsheet Editor (Prof. Abhilash Jindal)* (January '24 - April '24) : Developed a feature-rich spreadsheet in application combining Vim's modal editing efficiency with comprehensive spreadsheet functionality in Rust language with a custom evaluation engine of arithmetic operations with real-time updates. Implemented four-mode editing system (Normal/Insert/Visual/Command) with Vim-style navigation and visual range selection. Achieved 80% unit test coverage and zero Clippy warnings.
+## RUSTSPREADSHEETVIM
+**Vim Spreadsheet Editor (Prof. Abhilash Jindal)** *(January '24 - April '24)*
+Developed a feature-rich spreadsheet in application combining Vim's modal editing efficiency with comprehensive spreadsheet functionality in Rust language with a custom evaluation engine of arithmetic operations with real-time updates. Implemented four-mode editing system (Normal/Insert/Visual/Command) with Vim-style navigation and visual range selection. Achieved 80% unit test coverage and zero Clippy warnings.
