@@ -1,0 +1,14 @@
+VECTOR_TYPE
+IDENT(v9)
+ASSIGN
+INT(3)
+LBRACKET
+TRUE
+COMMA
+FLOAT(2.000000)
+COMMA
+STRING(hello)
+RBRACKET
+SEMICOLON
+EOF
+Lexer error: Vector elements must be numeric (int or float)

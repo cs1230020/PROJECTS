@@ -1,0 +1,8 @@
+PRINT_INT
+LPAREN
+STRING(hello)
+RPAREN
+SEMICOLON
+EOF
+Type checking successful!
+Runtime error: Expected integer for print_int

@@ -1,0 +1,15 @@
+INT_TYPE
+IDENT(a)
+ASSIGN
+INT(1)
+SEMICOLON
+INT_TYPE
+IDENT(div1)
+ASSIGN
+IDENT(a)
+DIVIDE
+INT(0)
+SEMICOLON
+EOF
+Type checking successful!
+Runtime error: Division by zero

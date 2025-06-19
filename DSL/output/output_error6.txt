@@ -1,0 +1,12 @@
+VECTOR_TYPE
+IDENT(invalid_vec1)
+ASSIGN
+INT(3)
+LBRACKET
+FLOAT(1.000000)
+COMMA
+FLOAT(2.000000)
+RBRACKET
+SEMICOLON
+EOF
+Lexer error: Vector size mismatch: expected 3 elements, got 2

@@ -1,0 +1,20 @@
+IDENT(v1)
+ASSIGN
+INT(3)
+LBRACKET
+INT(1)
+COMMA
+INT(2)
+COMMA
+INT(4)
+RBRACKET
+SEMICOLON
+VECTOR_TYPE
+IDENT(invalid_op3)
+ASSIGN
+IDENT(v1)
+VECTOR_ADD
+INT(5)
+SEMICOLON
+EOF
+Lexer error: Syntax error at line 1, character 6
