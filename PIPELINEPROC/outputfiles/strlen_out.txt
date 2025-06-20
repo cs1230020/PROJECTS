@@ -1,0 +1,505 @@
+Starting RISC-V Pipeline Simulator
+Processor initialized
+Loading program from: ../inputfiles/strlen.txt
+
+=== Loading Program from ../inputfiles/strlen.txt ===
+
+Instruction 0:
+  Machine Code: 0x00000add
+  Assembly: x6 x5 x10
+  Decoded fields:
+    Opcode: 0x5d
+    rd: x6
+    rs1: x5
+    rs2: x10
+    funct3: 0x0
+    funct7: 0x0
+
+Instruction 1:
+  Machine Code: 0x00000add
+  Assembly: x7 x6 x11
+  Decoded fields:
+    Opcode: 0x5d
+    rd: x7
+    rs1: x6
+    rs2: x11
+    funct3: 0x0
+    funct7: 0x0
+
+=== Program Loading Complete ===
+Total Instructions Loaded: 2
+
+Program loaded successfully
+
+Starting simulation...
+
+
+0
+
+x6 x5 x10;IF;ID;EX;MEM;WB
+IF/ID valid: false
+ID/EX valid: false
+EX/MEM valid: false
+MEM/WB valid: false
+[DEBUG] Fetched instruction 0x00000add at PC=0
+[DEBUG] Using registers - rd: x6, rs1: x5, rs2: x10
+[DEBUG] Instruction binary: 0000 0000 0000 0000 0000 1010 1101 1101 
+IF/ID valid: true
+ID/EX valid: false
+EX/MEM valid: false
+MEM/WB valid: false
+
+[DEBUG] Updating Pipeline Registers
+[DEBUG] Stall: false, Flush: false
+[DEBUG] Normal pipeline update
+[DEBUG] Updated ID/EX from IF/ID
+
+
+1
+
+x7 x6 x11; [DEBUG] Fetched instruction 0x00000add at PC=1
+[DEBUG] Using registers - rd: x7, rs1: x6, rs2: x11
+[DEBUG] Instruction binary: 0000 0000 0000 0000 0000 1010 1101 1101 
+IF/ID valid: true
+ID/EX valid: true
+EX/MEM valid: false
+MEM/WB valid: false
+
+[DEBUG] Entering resolveHazards()
+[DEBUG] Initial stall state: false
+
+[DEBUG] Current Pipeline State:
+IF/ID instruction: 0xadd
+IF/ID rs1: 6, rs2: 11
+ID/EX valid: true, memRead: false, regWrite: false, rd: 6
+EX/MEM valid: false, regWrite: false, rd: 0
+
+[DEBUG] Checking load-use hazard:
+ID/EX valid: true
+ID/EX memRead: false
+ID/EX rd != 0: true
+
+[DEBUG] Checking RAW hazard with EX stage:
+ID/EX valid: true
+ID/EX regWrite: false
+ID/EX rd != 0: true
+
+[DEBUG] Checking RAW hazard with MEM stage:
+EX/MEM valid: false
+EX/MEM regWrite: false
+EX/MEM rd != 0: false
+
+[DEBUG] No hazards detected
+[DEBUG] Final stall state: false
+[DEBUG] Exiting resolveHazards()
+
+IF/ID valid: true
+ID/EX valid: true
+EX/MEM valid: false
+MEM/WB valid: false
+
+[DEBUG] Updating Pipeline Registers
+[DEBUG] Stall: false, Flush: false
+[DEBUG] Normal pipeline update
+[DEBUG] Updated EX/MEM from ID/EX
+[DEBUG] Updated ID/EX from IF/ID
+IF/ID valid: false
+ID/EX valid: true
+EX/MEM valid: true
+MEM/WB valid: false
+
+
+2
+
+; ; IF/ID valid: false
+ID/EX valid: true
+EX/MEM valid: true
+MEM/WB valid: false
+
+[DEBUG] Entering resolveHazards()
+[DEBUG] Initial stall state: false
+
+[DEBUG] Current Pipeline State:
+IF/ID instruction: 0xadd
+IF/ID rs1: 6, rs2: 11
+ID/EX valid: true, memRead: false, regWrite: false, rd: 7
+EX/MEM valid: true, regWrite: false, rd: 6
+
+[DEBUG] Checking load-use hazard:
+ID/EX valid: true
+ID/EX memRead: false
+ID/EX rd != 0: true
+
+[DEBUG] Checking RAW hazard with EX stage:
+ID/EX valid: true
+ID/EX regWrite: false
+ID/EX rd != 0: true
+
+[DEBUG] Checking RAW hazard with MEM stage:
+EX/MEM valid: true
+EX/MEM regWrite: false
+EX/MEM rd != 0: true
+
+[DEBUG] No hazards detected
+[DEBUG] Final stall state: false
+[DEBUG] Exiting resolveHazards()
+
+IF/ID valid: false
+ID/EX valid: true
+EX/MEM valid: true
+MEM/WB valid: false
+
+[DEBUG] Updating Pipeline Registers
+[DEBUG] Stall: false, Flush: false
+[DEBUG] Normal pipeline update
+[DEBUG] Updated MEM/WB from EX/MEM
+[DEBUG] Updated EX/MEM from ID/EX
+IF/ID valid: false
+ID/EX valid: false
+EX/MEM valid: true
+MEM/WB valid: true
+
+
+3
+
+; ; ; IF/ID valid: false
+ID/EX valid: false
+EX/MEM valid: true
+MEM/WB valid: true
+
+[DEBUG] Entering resolveHazards()
+[DEBUG] Initial stall state: false
+
+[DEBUG] Current Pipeline State:
+IF/ID instruction: 0xadd
+IF/ID rs1: 6, rs2: 11
+ID/EX valid: false, memRead: false, regWrite: false, rd: 7
+EX/MEM valid: true, regWrite: false, rd: 7
+
+[DEBUG] Checking load-use hazard:
+ID/EX valid: false
+ID/EX memRead: false
+ID/EX rd != 0: true
+
+[DEBUG] Checking RAW hazard with EX stage:
+ID/EX valid: false
+ID/EX regWrite: false
+ID/EX rd != 0: true
+
+[DEBUG] Checking RAW hazard with MEM stage:
+EX/MEM valid: true
+EX/MEM regWrite: false
+EX/MEM rd != 0: true
+
+[DEBUG] No hazards detected
+[DEBUG] Final stall state: false
+[DEBUG] Exiting resolveHazards()
+
+IF/ID valid: false
+ID/EX valid: false
+EX/MEM valid: true
+MEM/WB valid: true
+
+[DEBUG] Updating Pipeline Registers
+[DEBUG] Stall: false, Flush: false
+[DEBUG] Normal pipeline update
+[DEBUG] Updated MEM/WB from EX/MEM
+IF/ID valid: false
+ID/EX valid: false
+EX/MEM valid: false
+MEM/WB valid: true
+
+
+4
+
+; ; ; ; IF/ID valid: false
+ID/EX valid: false
+EX/MEM valid: false
+MEM/WB valid: true
+
+[DEBUG] Entering resolveHazards()
+[DEBUG] Initial stall state: false
+
+[DEBUG] Current Pipeline State:
+IF/ID instruction: 0xadd
+IF/ID rs1: 6, rs2: 11
+ID/EX valid: false, memRead: false, regWrite: false, rd: 7
+EX/MEM valid: false, regWrite: false, rd: 7
+
+[DEBUG] Checking load-use hazard:
+ID/EX valid: false
+ID/EX memRead: false
+ID/EX rd != 0: true
+
+[DEBUG] Checking RAW hazard with EX stage:
+ID/EX valid: false
+ID/EX regWrite: false
+ID/EX rd != 0: true
+
+[DEBUG] Checking RAW hazard with MEM stage:
+EX/MEM valid: false
+EX/MEM regWrite: false
+EX/MEM rd != 0: true
+
+[DEBUG] No hazards detected
+[DEBUG] Final stall state: false
+[DEBUG] Exiting resolveHazards()
+
+IF/ID valid: false
+ID/EX valid: false
+EX/MEM valid: false
+MEM/WB valid: true
+
+[DEBUG] Updating Pipeline Registers
+[DEBUG] Stall: false, Flush: false
+[DEBUG] Normal pipeline update
+IF/ID valid: false
+ID/EX valid: false
+EX/MEM valid: false
+MEM/WB valid: false
+
+
+5
+
+; ; ; ; ; IF/ID valid: false
+ID/EX valid: false
+EX/MEM valid: false
+MEM/WB valid: false
+
+[DEBUG] Entering resolveHazards()
+[DEBUG] Initial stall state: false
+
+[DEBUG] Current Pipeline State:
+IF/ID instruction: 0xadd
+IF/ID rs1: 6, rs2: 11
+ID/EX valid: false, memRead: false, regWrite: false, rd: 7
+EX/MEM valid: false, regWrite: false, rd: 7
+
+[DEBUG] Checking load-use hazard:
+ID/EX valid: false
+ID/EX memRead: false
+ID/EX rd != 0: true
+
+[DEBUG] Checking RAW hazard with EX stage:
+ID/EX valid: false
+ID/EX regWrite: false
+ID/EX rd != 0: true
+
+[DEBUG] Checking RAW hazard with MEM stage:
+EX/MEM valid: false
+EX/MEM regWrite: false
+EX/MEM rd != 0: true
+
+[DEBUG] No hazards detected
+[DEBUG] Final stall state: false
+[DEBUG] Exiting resolveHazards()
+
+IF/ID valid: false
+ID/EX valid: false
+EX/MEM valid: false
+MEM/WB valid: false
+
+[DEBUG] Updating Pipeline Registers
+[DEBUG] Stall: false, Flush: false
+[DEBUG] Normal pipeline update
+IF/ID valid: false
+ID/EX valid: false
+EX/MEM valid: false
+MEM/WB valid: false
+
+
+6
+
+; ; ; ; ; ; IF/ID valid: false
+ID/EX valid: false
+EX/MEM valid: false
+MEM/WB valid: false
+
+[DEBUG] Entering resolveHazards()
+[DEBUG] Initial stall state: false
+
+[DEBUG] Current Pipeline State:
+IF/ID instruction: 0xadd
+IF/ID rs1: 6, rs2: 11
+ID/EX valid: false, memRead: false, regWrite: false, rd: 7
+EX/MEM valid: false, regWrite: false, rd: 7
+
+[DEBUG] Checking load-use hazard:
+ID/EX valid: false
+ID/EX memRead: false
+ID/EX rd != 0: true
+
+[DEBUG] Checking RAW hazard with EX stage:
+ID/EX valid: false
+ID/EX regWrite: false
+ID/EX rd != 0: true
+
+[DEBUG] Checking RAW hazard with MEM stage:
+EX/MEM valid: false
+EX/MEM regWrite: false
+EX/MEM rd != 0: true
+
+[DEBUG] No hazards detected
+[DEBUG] Final stall state: false
+[DEBUG] Exiting resolveHazards()
+
+IF/ID valid: false
+ID/EX valid: false
+EX/MEM valid: false
+MEM/WB valid: false
+
+[DEBUG] Updating Pipeline Registers
+[DEBUG] Stall: false, Flush: false
+[DEBUG] Normal pipeline update
+IF/ID valid: false
+ID/EX valid: false
+EX/MEM valid: false
+MEM/WB valid: false
+
+
+7
+
+; ; ; ; ; ; ; IF/ID valid: false
+ID/EX valid: false
+EX/MEM valid: false
+MEM/WB valid: false
+
+[DEBUG] Entering resolveHazards()
+[DEBUG] Initial stall state: false
+
+[DEBUG] Current Pipeline State:
+IF/ID instruction: 0xadd
+IF/ID rs1: 6, rs2: 11
+ID/EX valid: false, memRead: false, regWrite: false, rd: 7
+EX/MEM valid: false, regWrite: false, rd: 7
+
+[DEBUG] Checking load-use hazard:
+ID/EX valid: false
+ID/EX memRead: false
+ID/EX rd != 0: true
+
+[DEBUG] Checking RAW hazard with EX stage:
+ID/EX valid: false
+ID/EX regWrite: false
+ID/EX rd != 0: true
+
+[DEBUG] Checking RAW hazard with MEM stage:
+EX/MEM valid: false
+EX/MEM regWrite: false
+EX/MEM rd != 0: true
+
+[DEBUG] No hazards detected
+[DEBUG] Final stall state: false
+[DEBUG] Exiting resolveHazards()
+
+IF/ID valid: false
+ID/EX valid: false
+EX/MEM valid: false
+MEM/WB valid: false
+
+[DEBUG] Updating Pipeline Registers
+[DEBUG] Stall: false, Flush: false
+[DEBUG] Normal pipeline update
+IF/ID valid: false
+ID/EX valid: false
+EX/MEM valid: false
+MEM/WB valid: false
+
+
+8
+
+; ; ; ; ; ; ; ; IF/ID valid: false
+ID/EX valid: false
+EX/MEM valid: false
+MEM/WB valid: false
+
+[DEBUG] Entering resolveHazards()
+[DEBUG] Initial stall state: false
+
+[DEBUG] Current Pipeline State:
+IF/ID instruction: 0xadd
+IF/ID rs1: 6, rs2: 11
+ID/EX valid: false, memRead: false, regWrite: false, rd: 7
+EX/MEM valid: false, regWrite: false, rd: 7
+
+[DEBUG] Checking load-use hazard:
+ID/EX valid: false
+ID/EX memRead: false
+ID/EX rd != 0: true
+
+[DEBUG] Checking RAW hazard with EX stage:
+ID/EX valid: false
+ID/EX regWrite: false
+ID/EX rd != 0: true
+
+[DEBUG] Checking RAW hazard with MEM stage:
+EX/MEM valid: false
+EX/MEM regWrite: false
+EX/MEM rd != 0: true
+
+[DEBUG] No hazards detected
+[DEBUG] Final stall state: false
+[DEBUG] Exiting resolveHazards()
+
+IF/ID valid: false
+ID/EX valid: false
+EX/MEM valid: false
+MEM/WB valid: false
+
+[DEBUG] Updating Pipeline Registers
+[DEBUG] Stall: false, Flush: false
+[DEBUG] Normal pipeline update
+IF/ID valid: false
+ID/EX valid: false
+EX/MEM valid: false
+MEM/WB valid: false
+
+
+9
+
+; ; ; ; ; ; ; ; ; IF/ID valid: false
+ID/EX valid: false
+EX/MEM valid: false
+MEM/WB valid: false
+
+[DEBUG] Entering resolveHazards()
+[DEBUG] Initial stall state: false
+
+[DEBUG] Current Pipeline State:
+IF/ID instruction: 0xadd
+IF/ID rs1: 6, rs2: 11
+ID/EX valid: false, memRead: false, regWrite: false, rd: 7
+EX/MEM valid: false, regWrite: false, rd: 7
+
+[DEBUG] Checking load-use hazard:
+ID/EX valid: false
+ID/EX memRead: false
+ID/EX rd != 0: true
+
+[DEBUG] Checking RAW hazard with EX stage:
+ID/EX valid: false
+ID/EX regWrite: false
+ID/EX rd != 0: true
+
+[DEBUG] Checking RAW hazard with MEM stage:
+EX/MEM valid: false
+EX/MEM regWrite: false
+EX/MEM rd != 0: true
+
+[DEBUG] No hazards detected
+[DEBUG] Final stall state: false
+[DEBUG] Exiting resolveHazards()
+
+IF/ID valid: false
+ID/EX valid: false
+EX/MEM valid: false
+MEM/WB valid: false
+
+[DEBUG] Updating Pipeline Registers
+[DEBUG] Stall: false, Flush: false
+[DEBUG] Normal pipeline update
+IF/ID valid: false
+ID/EX valid: false
+EX/MEM valid: false
+MEM/WB valid: false
+Simulation complete
