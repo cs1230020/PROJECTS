@@ -1,0 +1,36 @@
+Analysis of Concurrent Word Counter Experiment
+=============================================
+
+1. Experiment Setup:
+-------------------
+The experiment was performed by running the word counter system with different numbers of concurrent clients. The number of clients tested ranged from 1 to 32, incremented by 4 (i.e., 1, 4, 8, 12, 16, 20, 24, 28, 32). For each value of the number of clients, the experiment was repeated 5 times, and the average completion time per client along with the standard deviation was recorded.
+
+The experiments were conducted on a Windows environment using Python scripts. The server was run using "python server.py", and the clients were run using "python client.py". The results were saved in `p2_results.csv`, and the plot was generated using `plot_concurrent_results.py`, which created the file `p2_plot.png`.
+
+2. Observations:
+----------------
+From the generated plot, the following observations can be made:
+
+- When the number of clients is small (1, 4, 8), the average completion time per client remains relatively low and stable.
+- As the number of clients increases beyond 12 or 16, the completion time per client starts to rise noticeably.
+- For the highest number of clients tested (32), the completion time is significantly higher than for a smaller number of clients.
+
+3. Analysis:
+------------
+The experiment shows that the server handles a small number of clients efficiently, with minimal waiting or delay. However, as more clients attempt to connect simultaneously, contention for server resources increases.
+
+Since the server implementation handles clients sequentially (one at a time without threading), the requests are queued, causing increased wait times for each client. This explains why the completion time per client grows with the number of clients.
+
+The confidence intervals, derived from the standard deviation of repeated experiments, are small for a low number of clients but increase as the client count rises. This suggests variability in response time due to system scheduling and network conditions.
+
+4. Conclusion:
+--------------
+The completion time per client does not remain constant as the number of clients grows. Instead, it increases due to the server’s sequential handling of requests and limited capacity to serve multiple clients concurrently.
+
+This highlights the importance of efficient concurrency mechanisms, such as threading or multiprocessing, in real-world server implementations where multiple clients need to be handled simultaneously.
+
+5. Future Work:
+----------------
+- Implement threading or asynchronous handling in the server to reduce queuing delays.
+- Test the system under higher loads to understand scalability.
+- Explore how network latency and CPU usage impact performance in larger systems.
